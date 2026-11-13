@@ -140,7 +140,7 @@ p {
 	font-size: 80px;
 }
 
-.header-title p {
+.header-title__text {
 	font-weight: 700;
 	font-size: 24px;
 }
@@ -152,6 +152,9 @@ p {
 	background: linear-gradient(194.68deg, #ffb548 11.27%, #f3af34 90.4%);
 	border: none;
 	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .btn-text {
@@ -165,6 +168,7 @@ p {
 .header-title button span {
 	border: 1px solid #000;
 	margin: 0 15px;
+	height: 1.5rem;
 }
 
 .header-story {
@@ -1023,7 +1027,7 @@ hr {
 		font-size: 50px;
 	}
 
-	.header-title p {
+	.header-title__text {
 		font-size: 20px;
 	}
 
@@ -1106,7 +1110,7 @@ hr {
 		font-size: 35px;
 	}
 
-	.header-title p {
+	.header-title__text {
 		font-size: 16px;
 	}
 
@@ -1270,7 +1274,7 @@ hr {
 		justify-content: space-around;
 	}
 
-	.header-title p {
+	.header-title__text {
 		text-align: center;
 	}
 
@@ -1313,6 +1317,10 @@ hr {
 }
 
 @media (max-width: 385px) {
+	.container {
+		padding: 15px 10px;
+	}
+
 	.box-1_title span {
 		width: 260px;
 	}
@@ -1348,5 +1356,9 @@ hr {
 
 	.close-menu span {
 		right: 0;
+	}
+
+	.box-3_list li {
+		padding: 15px 10px;
 	}
 }
