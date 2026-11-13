@@ -44,11 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		let prev = document.querySelector('.prev')
 		let circles = document.querySelectorAll('.circle span')
 
+		console.log(items)
+
 		let active = 1
 
 		function startCarousel() {
 			let sst = 0
-
 			items[active].style.transform = 'none'
 			items[active].style.zIndex = 2
 			items[active].style.opacity = 1
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					`translateX(${40 * sst}px) scale(${1 - 0.1 * sst})`
 				items[i].style.zIndex = 1
 				items[i].style.opacity = sst > 2 ? 0 : 0.6
-				items[i].style.width = sst > 3 ? 0 : 'auto'
 			}
 
 			if (active > 1) {
@@ -131,26 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
-	// бургер
-
-	const btnBurger = document.querySelector('.burger')
-	const btnClose = document.querySelector('.close-menu')
-
-	const burger = document.querySelector('.burger-menu')
-
-	const body = document.body
-
-	btnBurger.addEventListener('click', function () {
-		this.classList.add('close')
-		burger.classList.remove('close')
-		body.classList.add('no-scrolling')
-	})
-
-	btnClose.addEventListener('click', function () {
-		burger.classList.add('close')
-		btnBurger.classList.remove('close')
-		body.classList.remove('no-scrolling')
-	})
+	btnBurger()
 
 	const scroll = function () {
 		const about = document.querySelector('.about')
@@ -160,6 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		about.addEventListener('click', function () {
 			document.querySelector('.box-1').scrollIntoView({ behavior: 'smooth' })
+			console.log('1')
 		})
 
 		features.addEventListener('click', function () {
@@ -176,4 +158,65 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	scroll()
+
+	const scrollBurger = function () {
+		const about = document.querySelector('.about-burger')
+		const features = document.querySelector('.features-burger')
+		const requirements = document.querySelector('.requirements-burger')
+		const quotes = document.querySelector('.quotes-burger')
+
+		function styleBurgerDelete() {
+			const btnBurger = document.querySelector('.burger')
+			const burger = document.querySelector('.burger-menu')
+
+			burger.classList.add('close')
+			btnBurger.classList.remove('close')
+			document.body.classList.remove('no-scrolling')
+		}
+
+		about.addEventListener('click', function () {
+			document.querySelector('.box-1').scrollIntoView({ behavior: 'smooth' })
+			console.log('1')
+			styleBurgerDelete()
+		})
+
+		features.addEventListener('click', function () {
+			document.querySelector('.box-2').scrollIntoView({ behavior: 'smooth' })
+			styleBurgerDelete()
+		})
+
+		requirements.addEventListener('click', function () {
+			document.querySelector('.box-3').scrollIntoView({ behavior: 'smooth' })
+			styleBurgerDelete()
+		})
+
+		quotes.addEventListener('click', function () {
+			document.querySelector('.box-4').scrollIntoView({ behavior: 'smooth' })
+			styleBurgerDelete()
+		})
+	}
+
+	scrollBurger()
+
+	// бургер
+	function btnBurger() {
+		const btnBurger = document.querySelector('.burger')
+		const btnClose = document.querySelector('.close-menu')
+
+		const burger = document.querySelector('.burger-menu')
+
+		const body = document.body
+
+		btnBurger.addEventListener('click', function () {
+			this.classList.add('close')
+			burger.classList.remove('close')
+			body.classList.add('no-scrolling')
+		})
+
+		btnClose.addEventListener('click', function () {
+			burger.classList.add('close')
+			btnBurger.classList.remove('close')
+			body.classList.remove('no-scrolling')
+		})
+	}
 })
