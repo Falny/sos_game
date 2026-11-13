@@ -1117,6 +1117,9 @@ hr {
 	.header-title button {
 		width: 210px;
 		height: 45px;
+	}
+
+	.btn-text {
 		font-size: 12px;
 	}
 
